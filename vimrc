@@ -12,3 +12,16 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 if has("autocmd")
   filetype plugin indent on
 endif
+
+
+
+"-----------------------------------------
+" CtrlP settings
+"-----------------------------------------
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc$',
+  \ 'file': '\.exe$\|\.so$\|\.dat$'
+  \ }
+
+let g:ctrlp_use_caching = 0
