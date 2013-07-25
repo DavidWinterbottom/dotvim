@@ -38,3 +38,9 @@ let g:ctrlp_use_caching = 0
 let g:slime_target = "screen"
 let g:slime_paste_file = "$HOME/.slime_paste"
 "let g:slime_target = "whimrepl"
+
+
+"------------------------
+" jQuery settings
+"-------------------------
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery"
