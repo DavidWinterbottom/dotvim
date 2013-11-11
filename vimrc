@@ -6,6 +6,7 @@ set number
 set vb t_vb=
 set ts=2 sts=2 sw=2 expandtab
 syntax on
+set background=dark
 command! Status echo "All systems are go!"
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
@@ -18,6 +19,12 @@ endif
 
 " Map to C-W to use multi window without closing window...
 map <C-O> <C-W>
+
+"-----------------------------------------
+" NERDTree settings
+"-----------------------------------------
+autocmd vimenter * if !argc() | NERDTree | endif
+map <C-T> :NERDTreeToggle<CR>
 
 "-----------------------------------------
 " CtrlP settings
