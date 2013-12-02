@@ -30,6 +30,8 @@ set smartindent         ""# smart auto indenting
 set smarttab            ""# smart tab handling for indenting
 set magic               ""# change the way backslashes are used in search patterns
 set bs=indent,eol,start ""# Allow backspacing over everything in insert mode
+set splitbelow
+set splitright
 
 set tabstop=2           ""# number of spaces a tab counts for
 set shiftwidth=2        ""# spaces for autoindents
