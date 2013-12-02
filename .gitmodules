@@ -40,3 +40,12 @@
 [submodule "bundle/lustyjugler"]
 	path = bundle/lustyjugler
 	url = https://github.com/vim-scripts/LustyJuggler
+[submodule "bundle/vim-session"]
+	path = bundle/vim-session
+	url = https://github.com/xolox/vim-session
+[submodule "bundle/vim-misc"]
+	path = bundle/vim-misc
+	url = https://github.com/xolox/vim-misc
+[submodule "bundle/bclose"]
+	path = bundle/bclose
+	url = https://github.com/rbgrouleff/bclose.vim

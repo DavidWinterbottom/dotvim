@@ -104,7 +104,7 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
 
-let g:ctrlp_use_caching = 0
+let g:ctrlp_use_caching = 1
 
 
 "-----------------------------------------
@@ -120,3 +120,8 @@ let g:slime_paste_file = "$HOME/.slime_paste"
 " jQuery settings
 "-------------------------
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery"
+
+"------------------------
+" session-save settings
+"-------------------------
+:let g:session_autosave = 'yes'
