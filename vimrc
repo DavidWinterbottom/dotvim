@@ -8,7 +8,7 @@ set vb t_vb=
 
 "# display settings
 set background=dark     "# enable for dark terminals
-set nowrap              "# dont wrap lines
+"set nowrap              "# dont wrap lines
 set scrolloff=2         "# 2 lines above/below cursor when scrolling
 set number              "# show line numbers
 set showmatch           "# show matching bracket (briefly jump)
@@ -32,6 +32,8 @@ set magic               ""# change the way backslashes are used in search patter
 set bs=indent,eol,start ""# Allow backspacing over everything in insert mode
 set splitbelow
 set splitright
+
+nmap <leader>p :setlocal paste! paste?<cr>
 
 set tabstop=2           ""# number of spaces a tab counts for
 set shiftwidth=2        ""# spaces for autoindents
@@ -59,6 +61,10 @@ endif
 
 " Map to C-W to use multi window without closing window...
 map <C-O> <C-W>
+"nmap <silent> <C-Left> :wincmd h<CR>
+"nmap <silent> <C-Down> :wincmd j<CR>
+"nmap <silent> <C-Up> :wincmd k<CR>
+"nmap <silent> <C-Right> :wincmd l<CR>
 
 "-----------------------------------------
 "" german characters
@@ -100,7 +106,7 @@ endfunction
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc$|mode_modules\',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
 
@@ -125,3 +131,65 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery"
 " session-save settings
 "-------------------------
 :let g:session_autosave = 'yes'
+
+"------------------------"
+" YouCompleteMe settings"
+"------------------------"
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+
+"------------------------"
+" TagBar settings"
+"------------------------"
+nnoremap <silent> <Leader>b :TagbarToggle<CR>
+let g:tagbar_type_javascript = {
+    \ 'ctagsbin' : 'jsctags'
+\ }
+let g:tagbar_ctags_bin = "C:\UBS\Dev\tools\ctags\ctags58\"
+"
+" tagbar support for groovy
+let g:tagbar_type_groovy = {
+\ 'ctagstype' : 'groovy',
+\ 'kinds' : [
+\ 'p:package',
+\ 'c:class',
+\ 'i:interface',
+\ 'f:function',
+\ 'v:variables',
+\ ]
+\ }
+
+let g:tagbar_type_javascript = {
+    \ 'ctagstype' : 'JavaScript',
+    \ 'kinds'     : [
+        \ 'o:objects',
+        \ 'f:functions',
+        \ 'a:arrays',
+        \ 's:strings'
+    \ ]
+\ }
+
+" Custom syntastic settings:
+function s:find_jshintrc(dir)
+    let l:found = globpath(a:dir, '.jshintrc')
+    if filereadable(l:found)
+        return l:found
+    endif
+
+    let l:parent = fnamemodify(a:dir, ':h')
+    if l:parent != a:dir
+        return s:find_jshintrc(l:parent)
+    endif
+
+    return "~/.jshintrc"
+endfunction
+
+function UpdateJsHintConf()
+    let l:dir = expand('%:p:h')
+    let l:jshintrc = s:find_jshintrc(l:dir)
+    let g:syntastic_javascript_jshint_conf = l:jshintrc
+endfunction
+
+au BufEnter * call UpdateJsHintConf()
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_debug = 0
