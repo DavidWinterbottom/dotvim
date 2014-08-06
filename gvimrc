@@ -1,10 +1,12 @@
 set go-=T
 set bg=dark
+set vb t_vb=
 
 if &background == "dark"
     hi normal guibg=black
 endif
-set guifont=Monaco:h15
+
+set guifont=Lucida_Console:h8
 set lines=27
 set columns=86
-colorscheme blackboard
+colorscheme solarized

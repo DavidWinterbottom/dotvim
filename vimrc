@@ -7,7 +7,9 @@ set hidden
 set vb t_vb=
 
 "# display settings
-set background=dark     "# enable for dark terminals
+"set background=dark     "# enable for dark terminals
+colorscheme solarized
+
 "set nowrap              "# dont wrap lines
 set scrolloff=2         "# 2 lines above/below cursor when scrolling
 set number              "# show line numbers
@@ -145,7 +147,7 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 let g:tagbar_type_javascript = {
     \ 'ctagsbin' : 'jsctags'
 \ }
-let g:tagbar_ctags_bin = "C:\UBS\Dev\tools\ctags\ctags58\"
+let g:tagbar_ctags_bin = "/local/tools/ctags/ctags58/"
 "
 " tagbar support for groovy
 let g:tagbar_type_groovy = {
