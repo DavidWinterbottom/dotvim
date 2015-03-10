@@ -13,7 +13,7 @@ colorscheme solarized
 "set nowrap              "# dont wrap lines
 set scrolloff=2         "# 2 lines above/below cursor when scrolling
 set number              "# show line numbers
-set showmatch           "# show matching bracket (briefly jump)
+#set showmatch           "# show matching bracket (briefly jump)
 set showmode            "# show mode in status bar (insert/replace/...)
 set showcmd             "# show typed command in status bar
 set ruler               "# show cursor position in status bar
@@ -21,7 +21,7 @@ set title               "# show file in titlebar
 set wildmenu            "# completion with menu
 set wildignore=*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
 set laststatus=2        "# use 2 lines for the status bar
-set matchtime=2         "# show matching bracket for 0.2 seconds
+#set matchtime=2         "# show matching bracket for 0.2 seconds
 set matchpairs+=<:>     "# specially for html
 
 "# editor settings
@@ -51,6 +51,8 @@ set nobackup            ""# no backup~ files.
 set viminfo='20,\"500   ""# remember copy registers after quitting in the .viminfo file -set hidden              # remember undo after quitting
 set history=50          ""# keep 50 lines of command history
 set mouse=v             ""# use mouse in visual mode (not normal,insert,command,help mode)'
+
+set fdm=indent          ""# Set folding method to indent
 
 command! Status echo "All systems are go!"
 
@@ -189,9 +191,17 @@ endfunction
 function UpdateJsHintConf()
     let l:dir = expand('%:p:h')
     let l:jshintrc = s:find_jshintrc(l:dir)
-    let g:syntastic_javascript_jshint_conf = l:jshintrc
+    " let g:syntastic_javascript_jshint_conf = l:jshintrc
+    let g:syntastic_javascript_jshint_args = '--config ' . l:jshintrc
+
 endfunction
 
 au BufEnter * call UpdateJsHintConf()
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_debug = 0
+
+"--------------------------"
+" Matchit settings
+"--------------------------"
+filetype plugin on
+runtime bundle/vim-matchit/plugin/matchit.vim
