@@ -1,57 +1,39 @@
 [submodule "bundle/fugitive"]
-	path = bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+  path = bundle/fugitive
+  url = git://github.com/tpope/vim-fugitive.git
 [submodule "bundle/ctrlp"]
-	path = bundle/ctrlp
-	url = git://github.com/kien/ctrlp.vim.git
-[submodule "bundle/slime"]
-	path = bundle/slime
-	url = https://github.com/jpalardy/vim-slime.git
-[submodule "bundle/vim-sparkup"]
-	path = bundle/vim-sparkup
-	url = git://github.com/tristen/vim-sparkup.git
-[submodule "bundle/delimitMate"]
-	path = bundle/delimitMate
-	url = https://github.com/Raimondi/delimitMate.git
+  path = bundle/ctrlp
+  url = git://github.com/kien/ctrlp.vim.git
 [submodule "bundle/vim-rs-solarized"]
-	path = bundle/vim-rs-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
+  path = bundle/vim-rs-solarized
+  url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
-[submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter
-[submodule "bundle/emmet-vim"]
-	path = bundle/emmet-vim
-	url = https://github.com/mattn/emmet-vim.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "bundle/conque-shell"]
-	path = bundle/conque-shell
-	url = https://github.com/vim-scripts/Conque-Shell
-[submodule "bundle/tagbar"]
-	path = bundle/tagbar
-	url = https://github.com/majutsushi/tagbar.git
-[submodule "bundle/rename"]
-	path = bundle/rename
-	url = https://github.com/danro/rename.vim
-[submodule "bundle/lustyjugler"]
-	path = bundle/lustyjugler
-	url = https://github.com/vim-scripts/LustyJuggler
-[submodule "bundle/vim-session"]
-	path = bundle/vim-session
-	url = https://github.com/xolox/vim-session
-[submodule "bundle/vim-misc"]
-	path = bundle/vim-misc
-	url = https://github.com/xolox/vim-misc
 [submodule "bundle/bclose"]
 	path = bundle/bclose
 	url = https://github.com/rbgrouleff/bclose.vim
-[submodule "bundle/csapprox"]
-	path = bundle/csapprox
-	url = https://github.com/godlygeek/csapprox
-[submodule "bundle/tern"]
-	path = bundle/tern
-	url = https://github.com/marijnh/tern_for_vim
+[submodule "bundle/vim-matchit"]
+  path = bundle/vim-matchit
+  url = git@github.com:jwhitley/vim-matchit.git
+[submodule "bundle/vim-matchtagalways"]
+	path = bundle/vim-matchtagalways
+	url = git@github.com:Valloric/MatchTagAlways.git
+[submodule "bundle/delimitMate"]
+	path = bundle/delimitMate
+	url = git@github.com:Raimondi/delimitMate.git
+[submodule "bundle/emmet-vim"]
+	path = bundle/emmet-vim
+	url = git@github.com:mattn/emmet-vim.git
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = git://github.com/majutsushi/tagbar
+[submodule "bundle/vim-misc"]
+	path = bundle/vim-misc
+	url = git@github.com:xolox/vim-misc.git
+[submodule "bundle/vim-easytags"]
+	path = bundle/vim-easytags
+	url = git@github.com:xolox/vim-easytags.git
