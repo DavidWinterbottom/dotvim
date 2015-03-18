@@ -116,7 +116,7 @@ endfunction
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc$|node_modules\',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc$|node_modules\|bower_modules\',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
 
@@ -125,7 +125,7 @@ let g:ctrlp_use_caching = 1
 "------------------------"
 " EasyTags settings"
 "------------------------"
-:let g:easytags_cmd = "c:/local/tools/ctags58/ctags"
+":let g:easytags_cmd = "c:/local/tools/ctags58/ctags"
 :set tags=./tags;
 :let g:easytags_dynamic_files = 1
 
@@ -136,7 +136,7 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 let g:tagbar_type_javascript = {
     \ 'ctagsbin' : 'jsctags'
 \ }
-let g:tagbar_ctags_bin = "c:/local/tools/ctags58/ctags"
+"let g:tagbar_ctags_bin = "c:/local/tools/ctags58/ctags"
 
 " tagbar support for groovy
 let g:tagbar_type_groovy = {

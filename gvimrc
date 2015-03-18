@@ -1,6 +1,9 @@
 set go-=T
 set bg=dark
 set vb t_vb=
+set fu
+set fuopt+=maxhorz
+
 
 if &background == "dark"
     hi normal guibg=black
