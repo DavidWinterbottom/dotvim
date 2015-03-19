@@ -1,8 +1,11 @@
 set go-=T
 set bg=dark
 set vb t_vb=
-set fu
-set fuopt+=maxhorz
+
+if has("mac")
+  set fu
+  set fuopt+=maxhorz
+endif
 
 
 if &background == "dark"
