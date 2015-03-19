@@ -16,3 +16,8 @@ set guifont=Lucida_Console:h8
 set lines=27
 set columns=86
 colorscheme solarized
+
+
+if has("gui_macvim")
+  autocmd VimLeave * :!open -a Terminal
+endif
