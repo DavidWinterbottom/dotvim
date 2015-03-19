@@ -192,13 +192,13 @@ let g:syntastic_debug = 0
 "" Ultisnips settings
 "----------------------------"
 if has("mac")
-  set runtimepath+=$HOME."/.vim/bundle/vim-snippets"
+  set runtimepath+=$HOME."/.vim/Ultisnips",$HOME."/.vim/bundle/vim-snippets"
   "let g:UltiSnipsSnippetDir=[$HOME."/vimfiles/bundle/vim-snippets/"]
-  let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/bundle/vim-snippets/"]
+  let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips", $HOME."/.vim/bundle/vim-snippets/UltiSnips"]
 elseif has("win32")
-  set runtimepath+=$HOME."/vimfiles/bundle/vim-snippets"
+  set runtimepath+=$HOME."/vimfiles/Ultisnips",$HOME."/vimfiles/bundle/vim-snippets"
   "let g:UltiSnipsSnippetDir=[$HOME."/vimfiles/bundle/vim-snippets/"]
-  let g:UltiSnipsSnippetDirectories=[$HOME."/vimfiles/bundle/vim-snippets/"]
+  let g:UltiSnipsSnippetDirectories=[$HOME."/vimfiles/UltiSnips", $HOME."/vimfiles/bundle/vim-snippets/UltiSnips"]
 endif
 
 let g:UltiSnipsEditSplit="horizontal"
