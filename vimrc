@@ -49,6 +49,11 @@ set history=50          ""# keep 50 lines of command history
 set mouse=v             ""# use mouse in visual mode (not normal,insert,command,help mode)'
 
 "------------------
+"" filetypes for Ultisnip and JavaScript
+"------------------
+"autocmd BufEnter,BufNew *.js setf javascript.javascript_jasmine
+
+"------------------
 "" display settings - using solarized
 "------------------
 set background=dark     "# enable for dark terminals
@@ -64,14 +69,6 @@ set directory+=,~/tmp,$TMP
 if has("autocmd")
   filetype plugin indent on
 endif
-
-"-----------------------------------------
-"" folding settings
-"-----------------------------------------
-set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
 
 " Map to C-W to use multi window without closing window...
 map <C-O> <C-W>
@@ -93,22 +90,10 @@ endif
 "-----------------------------------------
 " NERDTree settings
 "-----------------------------------------
-autocmd vimenter * if !argc() | NERDTree | endif
 map <C-T> :NERDTreeToggle<CR>
-
-autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
-
-" Close all open buffers on entering a window if the only
-" buffer that's left is the NERDTree buffer
-function! s:CloseIfOnlyNerdTreeLeft()
-  if exists("t:NERDTreeBufName")
-    if bufwinnr(t:NERDTreeBufName) != -1
-      if winnr("$") == 1
-        q
-      endif
-    endif
-  endif
-endfunction
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 "-----------------------------------------
 " CtrlP settings
@@ -116,50 +101,20 @@ endfunction
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc$|node_modules\|bower_modules\',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc$\|node_modules\|bower_components',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
 
 let g:ctrlp_use_caching = 1
 
-"------------------------"
-" EasyTags settings"
-"------------------------"
-:let g:easytags_cmd = "c:/local/tools/ctags58/ctags"
-:set tags=./tags;
-:let g:easytags_dynamic_files = 1
+"let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'c'
 
 "------------------------"
-" TagBar settings"
+" TernJS Settings
 "------------------------"
-nnoremap <silent> <Leader>b :TagbarToggle<CR>
-let g:tagbar_type_javascript = {
-    \ 'ctagsbin' : 'jsctags'
-\ }
-"let g:tagbar_ctags_bin = "c:/local/tools/ctags58/ctags"
-
-" tagbar support for groovy
-let g:tagbar_type_groovy = {
-\ 'ctagstype' : 'groovy',
-\ 'kinds' : [
-\ 'p:package',
-\ 'c:class',
-\ 'i:interface',
-\ 'f:function',
-\ 'v:variables',
-\ ]
-\ }
-
-let g:tagbar_type_javascript = {
-    \ 'ctagstype' : 'JavaScript',
-    \ 'kinds'     : [
-        \ 'o:objects',
-        \ 'f:functions',
-        \ 'a:arrays',
-        \ 's:strings'
-    \ ]
-\ }
-
+let g:tern_show_argument_hints='on_hold'
+"
 "------------------------"
 " Syntastic settings:
 "------------------------"
@@ -174,7 +129,11 @@ function s:find_jshintrc(dir)
         return s:find_jshintrc(l:parent)
     endif
 
-    return "~/.jshintrc"
+    if has("win32")
+      return "/c/Users/David/.jshintrc"
+    else
+      return "~/.jshintrc"
+    endif
 endfunction
 
 function UpdateJsHintConf()
@@ -192,12 +151,8 @@ let g:syntastic_debug = 0
 "" Ultisnips settings
 "----------------------------"
 if has("mac")
-  set runtimepath+=$HOME."/.vim/Ultisnips",$HOME."/.vim/bundle/vim-snippets"
-  "let g:UltiSnipsSnippetDir=[$HOME."/vimfiles/bundle/vim-snippets/"]
   let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips", $HOME."/.vim/bundle/vim-snippets/UltiSnips"]
 elseif has("win32")
-  set runtimepath+=$HOME."/vimfiles/Ultisnips",$HOME."/vimfiles/bundle/vim-snippets"
-  "let g:UltiSnipsSnippetDir=[$HOME."/vimfiles/bundle/vim-snippets/"]
   let g:UltiSnipsSnippetDirectories=[$HOME."/vimfiles/UltiSnips", $HOME."/vimfiles/bundle/vim-snippets/UltiSnips"]
 endif
 
@@ -207,8 +162,6 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsListTrigger="<c-g>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-
 
 "----------------------------"
 "" Neocomplete settings
@@ -227,8 +180,6 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
         \ }
 
 " Define keyword.
@@ -256,43 +207,16 @@ inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplete#enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType javascript setlocal omnifunc=tern#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+"-----------------------------------------
+"" folding settings
+"-----------------------------------------
+set foldmethod=indent   "fold based on indent
+set foldlevelstart=99
 
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'

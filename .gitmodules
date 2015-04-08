@@ -28,15 +28,6 @@
 [submodule "bundle/emmet-vim"]
 	path = bundle/emmet-vim
 	url = git@github.com:mattn/emmet-vim.git
-[submodule "bundle/tagbar"]
-	path = bundle/tagbar
-	url = git://github.com/majutsushi/tagbar
-[submodule "bundle/vim-misc"]
-	path = bundle/vim-misc
-	url = git@github.com:xolox/vim-misc.git
-[submodule "bundle/vim-easytags"]
-	path = bundle/vim-easytags
-	url = git@github.com:xolox/vim-easytags.git
 [submodule "bundle/tern_for_vim"]
 	path = bundle/tern_for_vim
 	url = git@github.com:marijnh/tern_for_vim.git
