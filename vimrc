@@ -219,4 +219,4 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "-----------------------------------------
 set foldmethod=indent   "fold based on indent
 set foldlevelstart=99
-
+set foldignore=
