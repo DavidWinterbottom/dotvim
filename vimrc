@@ -96,6 +96,11 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 "-----------------------------------------
+" BufExplorer settings
+"-----------------------------------------
+map <C-B> :BufExplorer<CR>
+
+"-----------------------------------------
 " CtrlP settings
 "-----------------------------------------
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -118,35 +123,29 @@ let g:tern_show_argument_hints='on_hold'
 "------------------------"
 " Syntastic settings:
 "------------------------"
-function s:find_jshintrc(dir)
-    let l:found = globpath(a:dir, '.jshintrc')
-    if filereadable(l:found)
-        return l:found
-    endif
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-    let l:parent = fnamemodify(a:dir, ':h')
-    if l:parent != a:dir
-        return s:find_jshintrc(l:parent)
-    endif
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
-    if has("win32")
-      return "/c/Users/David/.jshintrc"
-    else
-      return "~/.jshintrc"
-    endif
-endfunction
+"let g:syntastic_javascript_checkers = ['jshint']"
+let g:syntastic_javascript_checkers = ['eslint']"
 
-function UpdateJsHintConf()
-    let l:dir = expand('%:p:h')
-    let l:jshintrc = s:find_jshintrc(l:dir)
-    let g:syntastic_javascript_jshint_args = '--config ' . l:jshintrc
-
-endfunction
-
-au BufEnter * call UpdateJsHintConf()
-let g:syntastic_always_populate_loc_list=1
 let g:syntastic_debug = 0
+let g:jsx_ext_required = 0
 
+"let g:syntastic_shell = "\bin\sh"
+set shell=C:\local\tools\Git\bin\sh.exe
+set shellslash
+
+"http://stackoverflow.com/questions/22534048/how-to-prevent-syntastic-from-creating-a-directory-for-every-vim-instance
+"let $TMPDIR = '/tmp/vim-' . $USER
+"silent! call mkdir($TMPDIR, '', 0700)
+"
 "----------------------------"
 "" Ultisnips settings
 "----------------------------"
@@ -213,6 +212,11 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=tern#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+"-----------------------------------------
+" Matchanything settings
+"-----------------------------------------
+let g:mta_filetypes = {'html':1,'xhtml':1,'xml':1, 'javascript':1}
 
 "-----------------------------------------
 "" folding settings
