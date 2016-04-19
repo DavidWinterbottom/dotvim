@@ -135,6 +135,9 @@ let g:syntastic_check_on_wq = 0
 "let g:syntastic_javascript_checkers = ['jshint']"
 let g:syntastic_javascript_checkers = ['eslint']"
 
+autocmd BufNewFile,BufRead *.json set ft=javascript
+let g:syntastic_json_checkers = ['eslint']
+
 let g:syntastic_debug = 0
 let g:jsx_ext_required = 0
 
