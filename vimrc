@@ -141,9 +141,10 @@ let g:syntastic_json_checkers = ['eslint']
 let g:syntastic_debug = 0
 let g:jsx_ext_required = 0
 
-"let g:syntastic_shell = "\bin\sh"
-set shell=C:\local\tools\Git\bin\sh.exe
-set shellslash
+if has("win32")
+  set shell=C:\local\tools\Git\bin\sh.exe
+  set shellslash
+endif
 
 "http://stackoverflow.com/questions/22534048/how-to-prevent-syntastic-from-creating-a-directory-for-every-vim-instance
 "let $TMPDIR = '/tmp/vim-' . $USER
@@ -231,6 +232,10 @@ set foldignore=
 "-----------------------------------------
 " Emmet
 "-----------------------------------------
-let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/vimfiles/.snippets_custom.json')), "\n"))
+if has("mac")
+  let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim/.snippets_custom.json')), "\n"))
+elseif has("win32")
+  let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/vimfiles/.snippets_custom.json')), "\n"))
+endif
 
 
