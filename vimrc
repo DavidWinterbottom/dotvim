@@ -227,3 +227,10 @@ let g:mta_filetypes = {'html':1,'xhtml':1,'xml':1, 'javascript':1}
 set foldmethod=indent   "fold based on indent
 set foldlevelstart=99
 set foldignore=
+
+"-----------------------------------------
+" Emmet
+"-----------------------------------------
+let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/vimfiles/.snippets_custom.json')), "\n"))
+
+

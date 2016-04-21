@@ -1,0 +1,23 @@
+{
+	"variables": {
+		"lang": "en",
+		"locale": "en-US",
+		"charset": "UTF-8",
+		"indentation": "\t",
+		"newline": "\n"
+	},
+	
+	"javascript.jsx": {
+		"snippets": {
+      "desc": "describe('${cursor}', () => {\n});",
+      "it": "it('should ${cursor}', () => {\n});",
+
+      "rcc": "var React = require('react');\nvar ${cursor} = React.createClass({\n\trender: function() {\n\t\treturn (\n\t\n\t\t);\n\t}\n});"
+
+    }
+	},
+
+	"sass": {
+		"extends": "css"
+	}
+}
