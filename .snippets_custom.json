@@ -12,8 +12,10 @@
       "desc": "describe('${cursor}', () => {\n});",
       "it": "it('should ${cursor}', () => {\n});",
 
-      "rcc": "var React = require('react');\nvar ${cursor} = React.createClass({\n\trender: function() {\n\t\treturn (\n\t\n\t\t);\n\t}\n});"
-
+      "rcc": "var React = require('react');\nvar ${cursor} = React.createClass({\n\trender: function() {\n\t\treturn (\n\t\n\t\t);\n\t}\n});",
+      "i": "import ${cursor} from '';",
+      "r": "var ${cursor} = require('');",
+      "agm":"angular.module('${cursor}', [])"
     }
 	},
 

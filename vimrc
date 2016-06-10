@@ -48,6 +48,11 @@ set viminfo='20,\"500   ""# remember copy registers after quitting in the .vimin
 set history=50          ""# keep 50 lines of command history
 set mouse=v             ""# use mouse in visual mode (not normal,insert,command,help mode)'
 
+" directories for swap and undo
+set backupdir=~/vimfiles/backup//
+set directory=~/vimfiles/swap//
+set undodir=~/vimfiles/undo//
+
 "------------------
 "" filetypes for Ultisnip and JavaScript
 "------------------
@@ -100,6 +105,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " BufExplorer settings
 "-----------------------------------------
 map <C-B> :BufExplorer<CR>
+let g:bufExplorerShowRelativePath=1
 
 "-----------------------------------------
 " CtrlP settings
