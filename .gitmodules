@@ -1,9 +1,9 @@
 [submodule "bundle/fugitive"]
   path = bundle/fugitive
-  url = git://github.com/tpope/vim-fugitive.git
+  url = https://github.com/tpope/vim-fugitive.git
 [submodule "bundle/ctrlp"]
   path = bundle/ctrlp
-  url = git://github.com/kien/ctrlp.vim.git
+  url = https://github.com/kien/ctrlp.vim.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
@@ -15,28 +15,28 @@
 	url = https://github.com/rbgrouleff/bclose.vim
 [submodule "bundle/vim-matchit"]
   path = bundle/vim-matchit
-  url = git@github.com:jwhitley/vim-matchit.git
+  url = https://github.com/tmhedberg/matchit.git
 [submodule "bundle/vim-matchtagalways"]
 	path = bundle/vim-matchtagalways
-	url = git@github.com:Valloric/MatchTagAlways.git
+	url = https://github.com/Valloric/MatchTagAlways.git
 [submodule "bundle/delimitMate"]
 	path = bundle/delimitMate
-	url = git@github.com:Raimondi/delimitMate.git
+	url = https://github.com/Raimondi/delimitMate.git
 [submodule "bundle/emmet-vim"]
 	path = bundle/emmet-vim
-	url = git@github.com:mattn/emmet-vim.git
+	url = https://github.com/mattn/emmet-vim.git
 [submodule "bundle/tern_for_vim"]
 	path = bundle/tern_for_vim
-	url = git@github.com:marijnh/tern_for_vim.git
+	url = https://github.com/ternjs/tern_for_vim.git
 [submodule "bundle/neocomplete"]
 	path = bundle/neocomplete
-	url = git@github.com:Shougo/neocomplete.vim.git
+	url = https://github.com/Shougo/neocomplete.vim.git
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
 [submodule "bundle/ultisnips"]
 	path = bundle/ultisnips
-	url = git@github.com:SirVer/ultisnips.git
+	url = https://github.com/SirVer/ultisnips.git
 [submodule "bundle/webapi-vim"]
 	path = bundle/webapi-vim
 	url = https://github.com/mattn/webapi-vim.git
