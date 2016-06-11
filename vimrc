@@ -263,3 +263,4 @@ endif
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 nmap <C-F> :Ack<space>
+nmap <C-G> :Ack <cword><cr>
