@@ -49,9 +49,15 @@ set history=50          ""# keep 50 lines of command history
 set mouse=v             ""# use mouse in visual mode (not normal,insert,command,help mode)'
 
 " directories for swap and undo
-set backupdir=~/vimfiles/backup//
-set directory=~/vimfiles/swap//
-set undodir=~/vimfiles/undo//
+if has("win32")
+  set backupdir=/Users/David/vimfiles/backup
+  set directory=/Users/David/vimfiles/swap
+  set undodir=/Users/David/vimfiles/undo
+else
+  set backupdir=~/.vim/backup/
+  set directory=~/.vim/swap/
+  set undodir=~/.vim/undo/
+endif
 
 "------------------
 "" filetypes for Ultisnip and JavaScript
@@ -244,8 +250,12 @@ set foldignore=
 if has("mac")
   let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim/.snippets_custom.json')), "\n"))
 elseif has("win32")
-  let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/vimfiles/.snippets_custom.json')), "\n"))
+  let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('/Users/David/vimfiles/.snippets_custom.json')), "\n"))
 endif
+
+"-----------------------------------------
+" Git Gutter
+"-----------------------------------------
 
 "-----------------------------------------
 " Ack/Ack
