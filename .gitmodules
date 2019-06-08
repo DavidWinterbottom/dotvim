@@ -1,48 +1,15 @@
-[submodule "bundle/fugitive"]
-  path = bundle/fugitive
-  url = https://github.com/tpope/vim-fugitive.git
 [submodule "bundle/ctrlp"]
   path = bundle/ctrlp
   url = https://github.com/kien/ctrlp.vim.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
-[submodule "bundle/syntastic"]
-	path = bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "bundle/bclose"]
 	path = bundle/bclose
 	url = https://github.com/rbgrouleff/bclose.vim
 [submodule "bundle/vim-matchit"]
   path = bundle/vim-matchit
   url = https://github.com/tmhedberg/matchit.git
-[submodule "bundle/vim-matchtagalways"]
-	path = bundle/vim-matchtagalways
-	url = https://github.com/Valloric/MatchTagAlways.git
-[submodule "bundle/delimitMate"]
-	path = bundle/delimitMate
-	url = https://github.com/Raimondi/delimitMate.git
-[submodule "bundle/emmet-vim"]
-	path = bundle/emmet-vim
-	url = https://github.com/mattn/emmet-vim.git
-[submodule "bundle/tern_for_vim"]
-	path = bundle/tern_for_vim
-	url = https://github.com/ternjs/tern_for_vim.git
-[submodule "bundle/neocomplete"]
-	path = bundle/neocomplete
-	url = https://github.com/Shougo/neocomplete.vim.git
-[submodule "bundle/vim-snippets"]
-	path = bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
-[submodule "bundle/ultisnips"]
-	path = bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
-[submodule "bundle/webapi-vim"]
-	path = bundle/webapi-vim
-	url = https://github.com/mattn/webapi-vim.git
-[submodule "bundle/FastFold"]
-	path = bundle/FastFold
-	url = https://github.com/Konfekt/FastFold.git
 [submodule "bundle/bufexplorer"]
 	path = bundle/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git
@@ -55,24 +22,9 @@
 [submodule "bundle/vim-jsx"]
 	path = bundle/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
-[submodule "bundle/ack.vim"]
-	path = bundle/ack.vim
-	url = https://github.com/mileszs/ack.vim.git
-[submodule "bundle/vim-gitgutter"]
-	path = bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "bundle/vim-misc"]
-	path = bundle/vim-misc
-	url = https://github.com/xolox/vim-misc.git
-[submodule "bundle/vim-shell"]
-	path = bundle/vim-shell
-	url = https://github.com/Shougo/vimshell.vim.git
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule "bundle/vim-airline-themes"]
-	path = bundle/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes.git

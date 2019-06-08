@@ -13,14 +13,10 @@
 
 
 #On Windows
- cd ~
- git clone git://github.com/DavidWinterbottom/dotvim.git ~/vimfiles
-
-#Create symlinks
-	ln -s ~/vimfiles/vimrc ~/_vimrc
-	ln -s ~/vimfiles/gvimrc ~/_gvimrc
+ cd %HOMEPATH%
+ git clone git://github.com/DavidWinterbottom/dotvim.git vimfiles
 
 #Update submodules
-  cd ~/vimfiles
+  cd vimfiles
   git submodule init
   git submodule update
