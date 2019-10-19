@@ -1,10 +1,13 @@
-#Installation:
-  cd ~
-  git clone git://github.com/DavidWinterbottom/dotvim.git ~/.vim
+#Installation
 
-#Create symlinks
-  ln -s ~/.vim/vimrc ~/.vimrc
-  ln -s ~/.vim/gvimrc ~/.gvimrc
+###On linux/macOS
+
+```shell
+cd ~
+git clone git://github.com/DavidWinterbottom/dotvim.git ~/.vim
+ln -s ~/.vim/vimrc ~/.vimrc
+ln -s ~/.vim/gvimrc ~/.gvimrc
+```
 
 #Update submodules
   cd ~/.vim
